@@ -46,7 +46,7 @@ function handleBird() {
 
 
 function handlePipes() {
-    if (frames % 4000 === 0) {
+    if (frames % 9000 === 0) {
         let pipeTopY = pipeLoc() - pipeWidth;
         let pipeBottomY = pipeTopY + pipeGap + pipeWidth;
         pipes.push({
@@ -135,11 +135,11 @@ canvas.addEventListener('mousedown', function() {
 });
 
 function birdJump() {
-    bird.velocity = -0.04;
+    bird.velocity = -0.055;
     bird.delayFall = true;
     setTimeout(function() {
         bird.delayFall = false;
-    }, 400); 
+    }, 180); 
 }
 
 
