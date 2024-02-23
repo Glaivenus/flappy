@@ -5,9 +5,9 @@ canvas.width = 900;
 canvas.height = 900;
 
 let score = 0;
-let gameSpeed = 0.08 ;
+let gameSpeed = 0.04 ;
 const gravity = 0.0002;
-const maxFallSpeed = 0.07; // 最大下落速度
+const maxFallSpeed = 0.05; // 最大下落速度
 
 
 const birdImage = new Image();
