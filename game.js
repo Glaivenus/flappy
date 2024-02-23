@@ -168,26 +168,4 @@ function resetGame() {
     frames = 0;
 }
 
-//移动端
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight * 0.8; 
-}
-
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-let touchTimer; 
-const zoomFactor = 1.2; 
-
-canvas.addEventListener('touchstart', function(e) {
-    touchTimer = setTimeout(function() {
-        canvas.style.width = `${canvas.width * zoomFactor}px`;
-        canvas.style.height = `${canvas.height * zoomFactor}px`;
-    }, 500);
-    e.preventDefault();
-}, { passive: false });
-
-canvas.addEventListener('touchend', function() {
-    clearTimeout(touchTimer); 
-});

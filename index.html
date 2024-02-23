@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flappy Bird Game</title>
+    <title>Flappy 鲸鱼引</title>
     <style>
         canvas {
             display: block;
@@ -27,6 +27,50 @@
             animate();
         }
 });
+
+
+//移动端
+function setupCanvasSize() {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        canvas.width = 350;
+        canvas.height = 640;
+    } else {
+        // 非移动端的尺寸，可以根据需要调整
+        canvas.width = 900;
+        canvas.height = 900;
+    }
+}
+
+setupCanvasSize();
+
+const originalWidth = 900;
+const originalHeight = 900;
+
+// 计算缩放
+const scaleX = canvas.width / originalWidth;
+const scaleY = canvas.height / originalHeight;
+
+// 缩放
+bird.width *= scaleX;
+bird.height *= scaleY;
+bird.x = canvas.width * 0.1; 
+bird.y = canvas.height / 2; 
+
+pipeWidth *= scaleX;
+pipeGap = canvas.height * 0.5; 
+
+function drawBird() {
+    ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
+}
+
+function drawPipes() {
+    pipes.forEach(function(pipe) {
+        ctx.fillRect(pipe.x, 0, pipeWidth, pipe.topY);
+        ctx.fillRect(pipe.x, pipe.bottomY, pipeWidth, canvas.height - pipe.bottomY);
+    });
+}
+
 
     </script>
     <script src="game.js"></script>
