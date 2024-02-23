@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Game</title>
+    <style>
+        canvas {
+            display: block;
+            margin: auto;
+            background-color: #76D7C4;
+        }
+    </style>
+</head>
+<body>
+    <button id="startGameButton">开始游戏</button>
+
+    <canvas id="flappyBirdGame"></canvas>
+    <script>
+        let isGameRunning = false; 
+
+
+        document.getElementById('startGameButton').addEventListener('click', function() {
+        if (!isGameRunning) {
+            isGameRunning = true; 
+            resetGame(); 
+            animate();
+        }
+});
+
+    </script>
+    <script src="game.js"></script>
+    
+</body>
+</html>
